@@ -1,0 +1,25 @@
+# --- Secrets & Config ---
+.env
+
+# --- Python Junk ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# --- Tesseract/OCR Temp Data ---
+# If you ever save debug frames to a folder
+debug_frames/
+
+# --- Project Outputs ---
+#notes.txt
+#*.mp3
+#*.mp4
+#*.mkv
+
+# --- IDE Settings ---
+.vscode/
+.idea/

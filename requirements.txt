@@ -1,0 +1,7 @@
+yt-dlp
+openai-whisper
+opencv-python
+pytesseract
+pillow
+requests
+google-generativeai

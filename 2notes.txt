@@ -1,0 +1,2 @@
+AI Error: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+error due api key got expired  duration  on openrouter

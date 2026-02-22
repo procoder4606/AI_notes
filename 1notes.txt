@@ -1,0 +1,61 @@
+Okay, here are structured notes based on the provided transcript and OCR text, detailing the "Find the Row with Maximum Number of Ones" problem and its solution:
+
+**1. High-Level Summary**
+
+The problem involves finding the row in a binary matrix (a matrix of 0s and 1s) that contains the maximum number of 1s. The solution involves iterating through each row of the matrix and using binary search (specifically the lower bound algorithm) to find the index of the first '1' in that row.  The number of 1's in that row is then calculated by subtracting the index of the found '1' from the total number of columns (m).  The row with the maximum count of 1s is then identified and returned.
+
+**2. Detailed Bullet Points**
+
+*   **Problem:** Find the row with the maximum number of 1s in a binary matrix.
+*   **Input:**
+    *   A matrix (2D array) `matrix` containing only 0s and 1s.
+    *   `n`: Number of rows in the matrix.
+    *   `m`: Number of columns in the matrix.
+*   **Solution Approach:**
+    *   **Iterate through each row:** Loop from `i = 0` to `n - 1`.
+    *   **Find the lower bound of 1:** For each row `i`, use binary search to find the lower bound (index of the first occurrence) of '1' within that row.  The `lower_bound` function returns the index of element which is greater than or equal to target. In this case the target is '1'.
+    *   **Calculate the number of 1s:** Subtract the lower bound index from the total number of columns (`m`) to get the count of 1s in that row: `count_1s = m - lower_bound(matrix[i], 1);`
+    *   **Maintain maximum count and index:**
+        *   Keep track of the `max_count` (maximum number of 1s found so far) and the `index` (the row index with the `max_count`).
+        *   If the current `count_1s` is greater than `max_count`, update `max_count` and `index`.
+    *   **Return the index:** After iterating through all rows, return the `index` of the row with the maximum number of 1s.
+
+*   **Lower Bound Function:**
+        *   Apply binary search on the current row `matrix[i]`
+        *   Adjust the `low` and `high` pointers based on comparison with target = 1
+        *   Example: If Row is `[0, 0, 0, 1]`
+            *   Index 0, 1, 2, 3
+            *   lower bound of 1 is 3
+
+*   **Initialization:**
+    *   `max_count = 0`
+    *   `index = -1`
+
+*   **Accessing Matrix Elements:**
+    *   `matrix[i][j]` accesses the element at row `i` and column `j`.
+    *   `matrix[i]` represents the i-th row of the matrix.
+
+*   **Example Walkthrough (from transcript):**
+    *   Row 1: `[0, 0, 0, 1]`
+        *   Lower bound of 1 is 3.
+        *   Number of 1s: `4 - 3 = 1`.
+
+    *   Row 2: `[1, 0, 1, 1]`
+        *   Lower bound of 1 is 0
+        *   Number of ones: `4 - 0 = 4`
+
+    *   Row 3: `[0, 0, 1, 1]`
+        *   Lower bound of 1 is 2
+        *   Number of ones: `4 - 2 = 2`
+
+    *   Row 4: `[0, 0, 0, 0]`
+        *   lower bound of 1 is 4
+        *   Number of ones: `4 - 4 = 0`
+
+    *   Row two has the maximum ones so the answer is row 2.
+
+**3. Formulas and Definitions**
+
+*   **Lower Bound:**  The index of the first element in a sorted array/row that is greater than or equal to a specified target value.
+*   **`count_1s = m - lower_bound(matrix[i], 1)`**: Calculates the number of 1s in the `i`-th row. `m` is the number of columns, and `lower_bound(matrix[i], 1)` is the index of the first '1' in that row.
+*   **Matrix Element Access:** `matrix[i][j]` (where `i` is the row index and `j` is the column index).
